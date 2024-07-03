@@ -11,7 +11,7 @@ const OfflineNotification = () => {
       };
   return (
     <>
-    <div className="mx-auto flex items-center justify-center min-h-screen  text-black p-6 w-12/12">
+    <div className="mx-auto flex items-center justify-center min-h-screen  text-black p-[520px] w-12/12">
       <div className="flex flex-col items-center space-y-4">
         <div className="flex items-center">
           <MdWifiOff className="mr-2" size={32} />

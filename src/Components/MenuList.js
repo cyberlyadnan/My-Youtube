@@ -40,7 +40,7 @@ const MenuList = () => {
           <li className="mb-1  px-3 py-1 text-[17px] cursor-pointer hover:bg-gray-100 rounded-md">
             <Link to="/" className="text-gray-700 hover:text-black">
               <FontAwesomeIcon className="px-2 pr-5" icon={faHome} />
-              Home{" "}
+              Home
             </Link>
           </li>
           <li className="mb-1  px-3 py-1 text-[17px] cursor-pointer hover:bg-gray-100 rounded-md">

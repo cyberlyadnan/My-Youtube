@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { createBrowserRouter } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import ShimmerCard from "./Components/ShimmerCard";
+import ChannelViewPage from "./Components/ChannelViewPage";
 
 
 const WatchPage = lazy(() => import("./Components/WatchPage"));
@@ -49,10 +50,18 @@ export const RouterList = createBrowserRouter([
         ),
       },
       {
-        path: "search/:query",
+        path: "results",
         element: (
           <Suspense fallback={<div><ShimmerCard /></div>}>
             <SearchPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "channel/:channelid",
+        element: (
+          <Suspense fallback={<div><ShimmerCard /></div>}>
+            <ChannelViewPage />
           </Suspense>
         ),
       },
