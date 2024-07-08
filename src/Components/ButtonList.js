@@ -26,10 +26,10 @@ const ButtonList = () => {
   };
 
   return (
-    <div className="relative flex items-center px-2 mb-2">
+    <div className="relative flex items-center px-1 lg:px-2 lg:mb-2">
       <button
         onClick={scrollLeft}
-        className="mx-2 z-10 p-2 bg-gray-200 rounded-lg shadow-lg ring-2 ring-gray-300 ring-opacity-50 hover:bg-gray-300"
+        className="px-1 py-1 mx-1 lg:mx-2 z-10 lg:p-2 bg-gray-200 rounded-md lg:rounded-lg shadow-lg lg:ring-2 ring-gray-300 ring-opacity-50 hover:bg-gray-300"
       >
         &lt;
       </button>
@@ -40,7 +40,7 @@ const ButtonList = () => {
         {buttonList ? (buttonList && buttonList.map((tag, index) => (
           <button
             key={index}
-            className="whitespace-nowrap bg-gray-200 hover:bg-gray-300 text-gray-700 py-1 px-4 rounded-lg shadow-md"
+            className="whitespace-nowrap bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm lg:text-base py-1 px-2 lg:py-1 lg:px-4 rounded-sm lg:rounded-lg shadow-md"
           >
             {tag.snippet.title}
           </button>
@@ -51,7 +51,7 @@ const ButtonList = () => {
       </div>
       <button
         onClick={scrollRight}
-        className="mx-2 z-10 p-2 bg-gray-200 rounded-lg shadow-lg ring-2 ring-gray-300 ring-opacity-50 hover:bg-gray-300"
+        className="px-1 py-1 mx-1 lg:mx-2 z-10 lg:p-2 bg-gray-200 rounded-md lg:rounded-lg shadow-lg lg:ring-2 ring-gray-300 ring-opacity-50 hover:bg-gray-300"
       >
         &gt;
       </button>
