@@ -18,12 +18,15 @@ const LiveSection = ({ videoId }) => {
     const getData = async () => {
       try {
         const apiData = await fetch(YOUTUBE_GET_LIVECHAT_ID + videoId);
-        const apiDataJson = await apiData.json();
-        const chatId = apiDataJson.items[0].liveStreamingDetails.activeLiveChatId;
+        const apiDataJson = await apiData?.json();
+        const chatId = apiDataJson?.items[0]?.liveStreamingDetails?.activeLiveChatId;
 
-        const Apicall = await fetch(YOUTUBE_LIVE_CHAT_API + chatId);
-        const ApicallJson = await Apicall.json();
-        dispatch(addMessage(ApicallJson.items));
+        if (chatId){
+          const Apicall = await fetch(YOUTUBE_LIVE_CHAT_API + chatId);
+        const ApicallJson = await Apicall?.json();
+        dispatch(addMessage(ApicallJson?.items));
+        }
+        
       } catch (error) {
         console.error("Error fetching live chat data:", error);
       }

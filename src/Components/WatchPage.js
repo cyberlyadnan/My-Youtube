@@ -17,39 +17,36 @@ const WatchPage = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex mr-8">
-      <div className="p-5">
+    <div className="lg:flex mr-8">
+      <div className="lg:p-5 p-2">
         <div>
           <iframe
-            className="rounded-[15px]"
-            width="950"
-            height="500"
+            className="rounded-md lg:rounded-[15px] w-full lg:w-[950px] lg:h-[500px]"
             src={`https://www.youtube.com/embed/${searchParams.get(
               "v"
             )}?si=ByG0TgdeLgBQt1Ll`}
             title="YouTube video player"
-            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"
             autoPlay // This attribute enables autoplay
           ></iframe>
         </div>
-        <div className="w-[960px]">
+        <div className="lg:w-[960px] w-full">
           <VideoDetails setIsLive={setIsLive} />
         </div>
-        <div className="h-[800px] overflow-y-auto p-5 border-t">
+        <div className="my-2 lg:h-[800px] lg:w-full w-full overflow-y-auto lg:p-5 border-t">
           <CommentSection />
         </div>
       </div>
       <div>
         {isLive && (
-          <div className="my-5 mx-1 w-[350px] rounded-lg p-2 overflow-x-auto border-gray-300 border">
-            <LiveSection videoId={"a2PEz-5shhQ"} />
+          <div className="my-2 lg:my-5 lg:mx-1 lg:w-[350px] rounded-lg lg:p-2 overflow-x-auto border-gray-300 border">
+            <LiveSection videoId={searchParams.get("v")} />
           </div>
         )}
 
-        <div className="my-5 mx-2 w-[350px] rounded-lg p-4 border-gray-300 border">
+        <div className="my-2 lg:my-5 lg:mx-2 lg:w-[350px] rounded-lg p-4 border-gray-300 border">
           <VideoSuggestions />
         </div>
       </div>

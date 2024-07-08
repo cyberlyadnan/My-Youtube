@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MenuList from './MenuList';
 import SideBarIcons from './SideBarIcons';
 import { useDispatch, useSelector } from 'react-redux';
-import { collapseMenu } from '../Utils/appSlice';
+import { collapseMenu, isphone } from '../Utils/appSlice';
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ const SideBar = () => {
     const checkDeviceType = () => {
       if (window.matchMedia("(max-width: 768px)").matches) {
         setDeviceType('mobile');
+        dispatch(isphone())
       } else {
         setDeviceType('desktop');
       }

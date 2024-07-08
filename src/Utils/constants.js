@@ -10,4 +10,5 @@ export const YOUTUBE_SEARCH_RESULTS_VIDEO_API = `https://youtube.googleapis.com/
 // export const YOUTUBE_SEARCH_RESULTS_VIDEO_API =`https://youtube.googleapis.com/youtube/v3/search?part=snippet&location=21.5922529%2C-158.1147114&locationRadius=10mi&type=video&key=${My_API_KEY}&q=`
 export const YOUTUBE_SINGLE_VIDEO_DETAILS_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=${My_API_KEY}&id=`
 export const YOUTUBE_LIVE_CHAT_API = `https://youtube.googleapis.com/youtube/v3/liveChat/messages?part=snippet%2CauthorDetails&key=${My_API_KEY}&liveChatId=`
-export const YOUTUBE_GET_LIVECHAT_ID = `https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id=a2PEz-5shhQ&key=${My_API_KEY}&id=`
+// export const YOUTUBE_GET_LIVECHAT_ID = `https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id=a2PEz-5shhQ&key=${My_API_KEY}&id=`
+export const YOUTUBE_GET_LIVECHAT_ID = `https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&key=${My_API_KEY}&id=`

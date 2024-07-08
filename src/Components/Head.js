@@ -8,6 +8,7 @@ import { YOUTUBE_SEARCH_API } from "../Utils/constants";
 import { addSearchCache } from "../Utils/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import logo from "../Images/youtube-icon.png"
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Head = () => {
   const navigate = useNavigate();
 
   const cacheData = useSelector((state) => state.search.cache);
+  const isOnPhone = useSelector(store => store.app.isOnPhone)
 
   const performSearch = () => {
     navigate(`/results?search_query=${searchQuery}`);
@@ -74,19 +76,19 @@ const Head = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center py-1 lg:p-4 lg:py-3 bg-white shadow-md">
+      <div className="flex lg:w-full w-full justify-between items-center py-4 px-1 lg:p-4 lg:py-3 bg-white shadow-md">
         <div className="flex items-center">
           <img
             onClick={handleToggle}
-            className="h-5 px-3 lg:h-7 lg:px-2 cursor-pointer"
+            className="h-6 px-3 lg:h-7 lg:px-2 cursor-pointer"
             alt="Hamburger"
             src={hamburger}
           />
           <Link to="/">
             <img
-              className="h-5 lg:h-7 lg:px-2 cursor-pointer"
+              className="h-6 lg:h-7 lg:px-2 cursor-pointer"
               alt="YouTube"
-              src={youtube}
+              src={isOnPhone ? logo : youtube}
             />
           </Link>
         </div>
@@ -97,19 +99,19 @@ const Head = () => {
               value={searchQuery}
               onChange={handleSearch}
               placeholder="Search"
-              className="text-xs lg:text-base border border-r-0 border-gray-300 rounded-l-full w-8/12 py-1 px-2 lg:py-2 lg:px-4 lg:w-full focus:outline-none"
+              className="text-xm lg:text-base border border-r-0 border-gray-300 rounded-l-full w-8/12 py-1 px-2 lg:py-2 lg:px-4 lg:w-full focus:outline-none"
             />
             {searchQuery && (
               <button
                 onClick={clearSearch}
-                className="text-xs lg:text-base  py-1 px-2 lg:py-[8px] lg:px-4 bg-transparent border border-r-0 border-l-0 border-gray-300 text-gray-500 hover:text-gray-700"
+                className="text-xm lg:text-base  py-1 px-2 lg:py-[8px] lg:px-4 bg-transparent border border-r-0 border-l-0 border-gray-300 text-gray-500 hover:text-gray-700"
               >
                 &times;
               </button>
             )}
             <button
               onClick={performSearch}
-              className="text-xs lg:text-base bg-gray-100 border border-gray-300 rounded-r-full py-1 px-2 lg:py-2 lg:px-4 hover:bg-gray-200"
+              className="text-xm lg:text-base bg-gray-100 border border-gray-300 rounded-r-full py-1 px-2 lg:py-2 lg:px-4 hover:bg-gray-200"
             >
               Search
             </button>
