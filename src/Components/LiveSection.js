@@ -24,7 +24,6 @@ const LiveSection = ({ videoId }) => {
         const Apicall = await fetch(YOUTUBE_LIVE_CHAT_API + chatId);
         const ApicallJson = await Apicall.json();
         dispatch(addMessage(ApicallJson.items));
-        console.log("ygyyuuy"+apiDataJson)
       } catch (error) {
         console.error("Error fetching live chat data:", error);
       }

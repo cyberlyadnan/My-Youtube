@@ -34,18 +34,15 @@ const VideoContainer = () => {
   }, []);
 
   return (
-    // <div className="px-2 py-2 flex flex-wrap">
     <div className="py-2 flex flex-wrap">
       
         <>
           {videos.length > 0 ? (
             videos.map((video) => (
-              // <Link to={"watch/?v=" + video.id} >
+              
                 <VideoCard link={"/watch/?v=" + video.id} key={video.id} videoInfo={video} />
-              // </Link>
-              // Link to={"watch/?v=" + video.id} key={video.id}>
-              // <VideoCard videoInfo={video} />
-            // </Link>
+              
+            
             ))
           ) : (
             Array(12).fill().map((_, index) => <ShimmerCard key={index} />)

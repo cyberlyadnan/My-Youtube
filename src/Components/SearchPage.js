@@ -11,9 +11,7 @@ const SearchPage = () => {
     const getData = async () => {
       const response = await fetch(YOUTUBE_SEARCH_RESULTS_VIDEO_API + search_query.get("search_query"))
       const responseJson = await response.json()
-      console.log(responseJson)
       setResults(responseJson)
-      // console.log(responseJson)
     } 
   
 

@@ -73,46 +73,46 @@ const Head = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center p-4 py-3 bg-white shadow-md">
+      <div className="flex justify-between items-center py-1 lg:p-4 lg:py-3 bg-white shadow-md">
         <div className="flex items-center">
           <img
             onClick={handleToggle}
-            className="h-7 px-2 cursor-pointer"
+            className="h-5 px-3 lg:h-7 lg:px-2 cursor-pointer"
             alt="Hamburger"
             src={hamburger}
           />
           <Link to="/">
           <img
-            className="h-7 px-2 cursor-pointer"
+            className="h-5 lg:h-7 lg:px-2 cursor-pointer"
             alt="YouTube"
             src={youtube}
           /></Link>
         </div>
         <div className="flex items-center justify-center flex-grow relative">
-          <div className="flex items-center w-4/12 relative">
+          <div className="flex items-center lg:w-4/12 lg:mx-0 ml-8 relative">
             <input
               type="text"
               value={searchQuery}
               onChange={handleSearch}
               placeholder="Search"
-              className="border border-r-0 border-gray-300 rounded-l-full py-2 px-4 w-full focus:outline-none"
+              className="text-xs lg:text-base border border-r-0 border-gray-300 rounded-l-full w-6/12 py-1 px-2 lg:py-2 lg:px-4 lg:w-full focus:outline-none"
             />
             {searchQuery && (
               <button
                 onClick={clearSearch}
-                className="text-xl p-[8px] bg-transparent border border-r-0 border-l-0 border-gray-300 text-gray-500 hover:text-gray-700"
+                className="lg:text-xl  py-1 px-2 lg:py-[6px] lg:px-4 bg-transparent border border-r-0 border-l-0 border-gray-300 text-gray-500 hover:text-gray-700"
               >
                 &times;
               </button>
             )}
             <button 
             onClick={performSearch}
-            className="bg-gray-100 border border-gray-300 rounded-r-full py-2 px-4 hover:bg-gray-200">
+            className="text-xs lg:text-base bg-gray-100 border border-gray-300 rounded-r-full py-1 px-2 lg:py-2 lg:px-4 hover:bg-gray-200">
               Search
             </button>
           </div>
           {suggestions.length > 0 && (
-            <div className="absolute top-12 bg-white shadow-lg border border-gray-300 w-4/12 rounded-lg z-10">
+            <div className="absolute top-12 bg-white shadow-lg border border-gray-300 lg:w-4/12 rounded-lg z-10">
               <ul className="list-none p-2">
                 {suggestions.map((suggestion, index) => (
                   <Link to={"results/?search_query="+suggestion} onClick={clearSearch}><li

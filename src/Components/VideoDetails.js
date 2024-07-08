@@ -19,7 +19,6 @@ const VideoDetails = ({ setIsLive }) => {
       const apiData = await fetch(YOUTUBE_SINGLE_VIDEO_DETAILS_API + videoId);
       const apiDataJson = await apiData.json();
       setVideoDetail(apiDataJson.items[0]);
-      console.log(apiDataJson.items[0]);
 
       // Check if the video is live and update the state
       const isLive =

@@ -13,7 +13,6 @@ const ChannelViewPage = () => {
       const channelResponse = await fetch(`${YOUTUBE_CHANNEL_API}${channelid}`);
       const channelJson = await channelResponse.json();
       const channel = channelJson?.items[0];
-      console.log("Channel Data"+channel)
       
 
       if (channel) {

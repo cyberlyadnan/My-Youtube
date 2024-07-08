@@ -1,17 +1,42 @@
-import React from 'react'
-import MenuList from './MenuList'
-import SideBarIcons from './SideBarIcons'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import MenuList from './MenuList';
+import SideBarIcons from './SideBarIcons';
+import { useDispatch, useSelector } from 'react-redux';
+import { collapseMenu } from '../Utils/appSlice';
 
 const SideBar = () => {
-  const condition = useSelector((store)=>store.app.isMenuOpen)
+  const dispatch = useDispatch();
+  const condition = useSelector((store) => store.app.isMenuOpen);
+  const [deviceType, setDeviceType] = useState('desktop');
+
+  useEffect(() => {
+    const checkDeviceType = () => {
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        setDeviceType('mobile');
+      } else {
+        setDeviceType('desktop');
+      }
+    };
+
+    checkDeviceType(); // Initial check
+    window.addEventListener('resize', checkDeviceType); // Check on resize
+
+    return () => {
+      window.removeEventListener('resize', checkDeviceType); // Cleanup on unmount
+    };
+  }, []);
+
+  useEffect(() => {
+    if (deviceType === "mobile") {
+      dispatch(collapseMenu());
+    }
+  }, [deviceType, dispatch]);
+
   return (
     <div>
-      {condition ? <MenuList className="w-2/12"/> :  <SideBarIcons/>}
-      
-     
+      {condition ? <MenuList className="w-2/12" /> : <SideBarIcons />}
     </div>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

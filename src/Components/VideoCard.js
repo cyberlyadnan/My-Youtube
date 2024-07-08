@@ -24,7 +24,6 @@ const VideoCard = ({ videoInfo ,link}) => {
   }
 
   const { snippet, statistics, channelImage, contentDetails } = videoInfo;
-  console.log("VideoInfo"+videoInfo)
   const { thumbnails, title, channelTitle } = snippet;
   const { viewCount } = statistics;
   const { duration } = contentDetails;

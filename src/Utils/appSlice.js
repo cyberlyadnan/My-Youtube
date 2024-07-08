@@ -10,7 +10,7 @@ const appSlice = createSlice({
         toogleMenu:(state)=>{
             state.isMenuOpen = !state.isMenuOpen },
     
-            collapseMenu:(state)=>{
+        collapseMenu:(state)=>{
             state.isMenuOpen = false
         }
     }

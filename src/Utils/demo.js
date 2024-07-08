@@ -19,7 +19,6 @@ const VideoDetails = () => {
     );
     const apiDataJson = await apiData.json();
     setvideoDetail(apiDataJson.items[0]);
-    console.log(apiDataJson.items[0]);
   };
 
   useEffect(() => {
