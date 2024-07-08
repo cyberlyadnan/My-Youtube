@@ -33,25 +33,25 @@ import {
 
 const MenuList = () => {
   return (
-    <div className="w-64 bg-white shadow-lg p-4 h-screen overflow-y-auto">
-      <div className="mb-6">
-        <h3 className="text-[13x] font-bold mb-2 pt-1">Home</h3>
+    <div className="w-30 lg:w-64 bg-white shadow-lg px-2 py-1 lg:p-4 h-screen overflow-y-auto">
+      <div className="mb-2 lg:mb-6">
+        <h3 className="text-[13px] lg:text-[13x] font-bold mb-2 lg:mb-2 lg:pt-1">Home</h3>
         <ul>
-          <li className="mb-1  px-3 py-1 text-[17px] cursor-pointer hover:bg-gray-100 rounded-md">
+          <li className="px-1 py-1 lg:mb-1 lg:px-3 lg:py-1 text-[15px] lg:text-[17px] cursor-pointer hover:bg-gray-100 rounded-md">
             <Link to="/" className="text-gray-700 hover:text-black">
-              <FontAwesomeIcon className="px-2 pr-5" icon={faHome} />
+              <FontAwesomeIcon className="pr-2 lg:px-2 lg:pr-5" icon={faHome} />
               Home
             </Link>
           </li>
-          <li className="mb-1  px-3 py-1 text-[17px] cursor-pointer hover:bg-gray-100 rounded-md">
+          <li className="px-1 py-1 lg:mb-1 lg:px-3 lg:py-1 text-[15px] lg:text-[17px] cursor-pointer hover:bg-gray-100 rounded-md">
             <Link to="/" className="text-gray-700 hover:text-black">
-              <FontAwesomeIcon className="px-2 pr-5" icon={faPlayCircle} />
+              <FontAwesomeIcon className="pr-2 lg:px-2 lg:pr-5" icon={faPlayCircle} />
               Shorts
             </Link>
           </li>
-          <li className="mb-1  px-3 py-1 text-[17px] cursor-pointer hover:bg-gray-100 rounded-md">
+          <li className="px-1 py-1 lg:mb-1 lg:px-3 lg:py-1 text-[15px] lg:text-[17px] cursor-pointer hover:bg-gray-100 rounded-md">
             <Link to="/" className="text-gray-700 hover:text-black">
-              <FontAwesomeIcon className="px-2 pr-5" icon={faUserFriends} />
+              <FontAwesomeIcon className="pr-2 lg:px-2 lg:pr-5" icon={faUserFriends} />
               Subscriptions
             </Link>
           </li>

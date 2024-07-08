@@ -7,6 +7,7 @@ import { toogleMenu } from "../Utils/appSlice";
 import { YOUTUBE_SEARCH_API } from "../Utils/constants";
 import { addSearchCache } from "../Utils/searchSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 const Head = () => {
   const dispatch = useDispatch();
@@ -14,13 +15,12 @@ const Head = () => {
   const [suggestions, setSuggestions] = useState([]);
   const navigate = useNavigate();
 
-
   const cacheData = useSelector((state) => state.search.cache);
 
   const performSearch = () => {
-    navigate(`/results?search_query=${searchQuery}`)
-    clearSearch()
-  }
+    navigate(`/results?search_query=${searchQuery}`);
+    clearSearch();
+  };
 
   const handleToggle = () => {
     dispatch(toogleMenu());
@@ -48,7 +48,7 @@ const Head = () => {
     } else {
       setSuggestions([]);
     }
-  }, [searchQuery,cacheData]);
+  }, [searchQuery, cacheData]);
 
   const getSearchSuggestions = async () => {
     try {
@@ -58,7 +58,8 @@ const Head = () => {
         .replace("[", "")
         .replace("]", "")
         .split('","')
-        .map((item) => item.replace(/"/g, "").trim()).slice(1,9);
+        .map((item) => item.replace(/"/g, "").trim())
+        .slice(1, 9);
       const newSuggestions = dataArray;
       setSuggestions(newSuggestions);
       dispatch(
@@ -82,11 +83,12 @@ const Head = () => {
             src={hamburger}
           />
           <Link to="/">
-          <img
-            className="h-5 lg:h-7 lg:px-2 cursor-pointer"
-            alt="YouTube"
-            src={youtube}
-          /></Link>
+            <img
+              className="h-5 lg:h-7 lg:px-2 cursor-pointer"
+              alt="YouTube"
+              src={youtube}
+            />
+          </Link>
         </div>
         <div className="flex items-center justify-center flex-grow relative">
           <div className="flex items-center lg:w-4/12 lg:mx-0 ml-8 relative">
@@ -95,32 +97,37 @@ const Head = () => {
               value={searchQuery}
               onChange={handleSearch}
               placeholder="Search"
-              className="text-xs lg:text-base border border-r-0 border-gray-300 rounded-l-full w-6/12 py-1 px-2 lg:py-2 lg:px-4 lg:w-full focus:outline-none"
+              className="text-xs lg:text-base border border-r-0 border-gray-300 rounded-l-full w-8/12 py-1 px-2 lg:py-2 lg:px-4 lg:w-full focus:outline-none"
             />
             {searchQuery && (
               <button
                 onClick={clearSearch}
-                className="lg:text-xl  py-1 px-2 lg:py-[6px] lg:px-4 bg-transparent border border-r-0 border-l-0 border-gray-300 text-gray-500 hover:text-gray-700"
+                className="text-xs lg:text-base  py-1 px-2 lg:py-[8px] lg:px-4 bg-transparent border border-r-0 border-l-0 border-gray-300 text-gray-500 hover:text-gray-700"
               >
                 &times;
               </button>
             )}
-            <button 
-            onClick={performSearch}
-            className="text-xs lg:text-base bg-gray-100 border border-gray-300 rounded-r-full py-1 px-2 lg:py-2 lg:px-4 hover:bg-gray-200">
+            <button
+              onClick={performSearch}
+              className="text-xs lg:text-base bg-gray-100 border border-gray-300 rounded-r-full py-1 px-2 lg:py-2 lg:px-4 hover:bg-gray-200"
+            >
               Search
             </button>
           </div>
           {suggestions.length > 0 && (
-            <div className="absolute top-12 bg-white shadow-lg border border-gray-300 lg:w-4/12 rounded-lg z-10">
-              <ul className="list-none p-2">
+            <div className="absolute top-7 lg:top-12 bg-white shadow-lg border border-gray-300 lg:w-4/12 rounded-lg z-10">
+              <ul className="list-none px-1 lg:p-2">
                 {suggestions.map((suggestion, index) => (
-                  <Link to={"results/?search_query="+suggestion} onClick={clearSearch}><li
+                  <Link
+                    to={"results/?search_query=" + suggestion}
+                    onClick={clearSearch}
                     key={index}
-                    className="p-2 hover:bg-gray-100 cursor-pointer"
                   >
-                    {suggestion}
-                  </li></Link>
+                    <li className="p-1 lg:p-2 flex items-center hover:bg-gray-100 cursor-pointer">
+                      <FaSearch className="text-xs text-gray-900 mr-2" />
+                      {suggestion}
+                    </li>
+                  </Link>
                 ))}
               </ul>
             </div>
