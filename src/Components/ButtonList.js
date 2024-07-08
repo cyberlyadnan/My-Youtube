@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { YOTUBE_VIDEO_CATEGORY_API } from '../Utils/constants';
 import ButtonShimmer from './ButtonShimmer';
+import { Link } from 'react-router-dom';
 
 
 const ButtonList = () => {
@@ -38,12 +39,13 @@ const ButtonList = () => {
         className="flex overflow-x-auto scrollbar-hide space-x-2 px-2 py-3 w-full"
       >
         {buttonList ? (buttonList && buttonList.map((tag, index) => (
-          <button
+          <Link
+            to={"results/?search_query=" + tag.snippet.title}
             key={index}
             className="whitespace-nowrap bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm lg:text-base py-1 px-2 lg:py-1 lg:px-4 rounded-sm lg:rounded-lg shadow-md"
           >
             {tag.snippet.title}
-          </button>
+          </Link>
         ))) :
           Array(20).fill().map((_, index)=> <ButtonShimmer key={index} />)
         }

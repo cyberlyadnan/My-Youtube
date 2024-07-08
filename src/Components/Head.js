@@ -76,7 +76,7 @@ const Head = () => {
 
   return (
     <>
-      <div className="flex lg:w-full w-full justify-between items-center py-4 px-1 lg:p-4 lg:py-3 bg-white shadow-md">
+      <div className="flex lg:w-full w-screen justify-between items-center py-4 px-1 lg:p-4 lg:py-3 bg-white shadow-md">
         <div className="flex items-center">
           <img
             onClick={handleToggle}

@@ -21,7 +21,7 @@ const SearchPage = () => {
 
   
   return (
-    <div className="p-4 w-full h-screen overflow-y-auto">
+    <div className="p-2 lg:p-4 w-full h-screen overflow-y-auto">
       {results?.items && results.items.map((video) => (
         <VideoSuggestionCard key={video.id.videoId} link={"/watch/?v="+video.id.videoId} data={video} />
       ))}

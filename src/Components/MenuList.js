@@ -33,7 +33,7 @@ import {
 
 const MenuList = () => {
   return (
-    <div className="w-30 lg:w-64 bg-white shadow-lg px-3 py-1 lg:p-4 h-screen overflow-y-auto">
+    <div className="w-40 lg:w-64 bg-white shadow-lg px-3 py-1 lg:p-4 h-screen overflow-y-auto">
       <div className="mb-2 lg:mb-6">
         <h3 className="text-[13px] lg:text-[13x] font-bold mb-2 lg:mb-2 lg:pt-1">Home</h3>
         <ul>
