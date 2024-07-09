@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { YOUTUBE_CHANNEL_API} from "../Utils/constants";
+import ShimmerCardChannel from "../Components/ShimmerCardChannel"
 
 const ChannelViewPage = () => {
   const [channelData, setChannelData] = useState(null);
@@ -51,7 +52,7 @@ const ChannelViewPage = () => {
   }, [channelid]);
 
   if (!channelData) {
-    return <h1>Loading...</h1>;
+    return <ShimmerCardChannel />;
   }
 
   return (
@@ -60,27 +61,27 @@ const ChannelViewPage = () => {
       <div className="w-full h-40 md:h-60 bg-cover bg-center" style={{ backgroundImage: `url(${channelData.bannerImage})` }}></div>
       
       {/* Channel Info */}
-      <div className="px-20 py-10">
+      <div className="lg:px-20 lg:py-10">
         <div className="flex items-center">
           <img
-            className="w-20 h-20 rounded-full"
+            className="lg:w-20 lg:h-20 rounded-full"
             src={channelData.profileImage}
             alt="Channel"
           />
-          <div className="ml-4">
-            <h1 className="text-2xl font-semibold">{channelData.name}</h1>
+          <div className="lg:ml-4">
+            <h1 className="lg:text-2xl font-semibold">{channelData.name}</h1>
             <span className="text-gray-600">{channelData.subscribers}</span>
           </div>
-          <button className="ml-auto px-4 py-2 text-white bg-red-500 hover:bg-red-600 rounded-lg">
+          <button className="lg:ml-auto lg:px-4 lg:py-2 text-white bg-red-500 hover:bg-red-600 rounded-lg">
             Subscribe
           </button>
         </div>
-        <p className="mt-4">{channelData.description}</p>
+        <p className="lg:mt-4">{channelData.description}</p>
       </div>
       
       {/* Videos */}
-      <div className="px-20 py-2">
-        <h2 className="text-xl font-semibold mb-4">Videos</h2>
+      <div className="lg:px-20 lg:py-2">
+        <h2 className="lg:text-xl font-semibold lg:mb-4">Videos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {videos.map((video) => (
             <div key={video.id} className="bg-white p-4 rounded-lg shadow-md">
